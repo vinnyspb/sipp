@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/vinnyspb/sipp.svg?branch=master)](https://travis-ci.org/vinnyspb/sipp)
+[![codecov](https://codecov.io/gh/vinnyspb/sipp/branch/master/graph/badge.svg)](https://codecov.io/gh/vinnyspb/sipp)
 
 # SI++ library
 
