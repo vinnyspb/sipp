@@ -37,7 +37,7 @@ public:
     constexpr Speed(const Speed<Rep2, DistanceType2, Ratio2> &other)
     {
         *this = other;
-    };
+    }
 
     template<class Rep2, class DistanceType2, class Ratio2>
     constexpr void operator=(const Speed<Rep2, DistanceType2, Ratio2> &other)
@@ -47,7 +47,7 @@ public:
                       "Use sipp::speed_cast<> to perform explicit cast of integer types "
                           "(possible precision loss)");
         *this = speed_cast<Speed<Rep, DistanceType, Ratio>>(other);
-    };
+    }
 
     template<class Rep2, class DistanceType2, class Ratio2>
     constexpr Speed<Rep, DistanceType, Ratio> &operator+=(const Speed<Rep2,

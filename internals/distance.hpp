@@ -1,6 +1,7 @@
 #pragma once
 
 #include <type_traits>
+#include <ratio>
 
 namespace sipp {
 
@@ -34,7 +35,7 @@ public:
     constexpr Distance(const Distance<Rep2, Ratio2> &other)
     {
         *this = other;
-    };
+    }
 
     template<class Rep2, class Ratio2>
     constexpr void operator=(const Distance<Rep2, Ratio2> &other)
