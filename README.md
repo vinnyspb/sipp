@@ -9,7 +9,8 @@
 Inspired by std::chrono, header-only library providing
 compile-time conversions and type-safety between different unit metrics.
 
-Name SI comes from [International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units).
+Name SI comes from [International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units),
+though the library now includes other unites as well.
 
 Library provides 2 basic template types: `Distance` and `Speed`.
 
@@ -18,7 +19,15 @@ There are typedefs instantiating exact metric units (see below).
 
 ## Dependencies
 
-C++14 compatible compiler.
+GCC 5+
+
+or
+
+Clang 3.8+
+
+or
+
+MS Visual Studio 2017+
 
 ## Distance
 
