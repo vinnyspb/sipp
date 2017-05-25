@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/vinnyspb/sipp.svg?branch=master)](https://travis-ci.org/vinnyspb/sipp)
+[![Linux/macOS Build Status](https://travis-ci.org/vinnyspb/sipp.svg?branch=master)](https://travis-ci.org/vinnyspb/sipp)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/fprd626eq7t7769f/branch/master?svg=true)](https://ci.appveyor.com/project/vinnyspb/sipp/branch/master)
 [![codecov](https://codecov.io/gh/vinnyspb/sipp/branch/master/graph/badge.svg)](https://codecov.io/gh/vinnyspb/sipp)
 
 # SI++ library
