@@ -36,6 +36,8 @@ MS Visual Studio 2017+
 ```cpp
 #include <sipp/sipp.hpp>
 
+// use <sipp/sipp_fwd.hpp> for just forward declarations
+
 // ...
 
 using namespace sipp::literals;

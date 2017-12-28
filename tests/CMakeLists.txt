@@ -9,6 +9,7 @@ set(GTEST_SRC_DIRECTORY "${GTEST_SRC_DIRECTORY}/3rdparty/googletest")
 add_subdirectory(${GTEST_SRC_DIRECTORY} "gtest" EXCLUDE_FROM_ALL)
 
 include_directories(SYSTEM "${GTEST_SRC_DIRECTORY}/googletest/include")
+include_directories("${PROJECT_SOURCE_DIR}/include")
 
 set(TEST_SOURCE_FILES
         test_distance.cpp

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../sipp.hpp"
+#include <sipp/sipp.hpp>
 
 using namespace sipp::literals;
 
