@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ratio>
+
 namespace sipp {
 
 template<class Rep, class DistanceType, class Ratio>
