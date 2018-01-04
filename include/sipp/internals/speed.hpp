@@ -79,6 +79,46 @@ public:
         return *this;
     }
 
+    template<class Rep2, class DistanceType2, class Ratio2>
+    constexpr bool operator<(const Speed<Rep2,
+                                         DistanceType2,
+                                         Ratio2> &other) const
+    {
+        return m_count < speed_cast<Speed<Rep, DistanceType, Ratio>>(other).m_count;
+    }
+
+    template<class Rep2, class DistanceType2, class Ratio2>
+    constexpr bool operator<=(const Speed<Rep2,
+                                          DistanceType2,
+                                          Ratio2> &other) const
+    {
+        return m_count <= speed_cast<Speed<Rep, DistanceType, Ratio>>(other).m_count;
+    }
+
+    template<class Rep2, class DistanceType2, class Ratio2>
+    constexpr bool operator>(const Speed<Rep2,
+                                         DistanceType2,
+                                         Ratio2> &other) const
+    {
+        return !(*this <= other);
+    }
+
+    template<class Rep2, class DistanceType2, class Ratio2>
+    constexpr bool operator>=(const Speed<Rep2,
+                                          DistanceType2,
+                                          Ratio2> &other) const
+    {
+        return !(*this < other);
+    }
+
+    template<class Rep2, class DistanceType2, class Ratio2>
+    constexpr bool operator==(const Speed<Rep2,
+                                          DistanceType2,
+                                          Ratio2> &other) const
+    {
+        return m_count == speed_cast<Speed<Rep, DistanceType, Ratio>>(other).m_count;
+    }
+
     constexpr const Rep &count() const
     { return m_count; }
 

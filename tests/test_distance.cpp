@@ -113,3 +113,47 @@ TEST_F(DistanceTestFixture, TestDivideByScalarUnary)
     auto sum = sipp::distance_cast<sipp::Meters>(d1);
     ASSERT_FLOAT_EQ(sum.count(), 20000.0);
 }
+
+TEST_F(DistanceTestFixture, TestOperatorLess)
+{
+    auto d1 = 100.0_km;
+    auto d2 = 100001.0_m;
+
+    ASSERT_LT(d1, d2);
+}
+
+TEST_F(DistanceTestFixture, TestOperatorLessEqual)
+{
+    auto d1 = 100.0_km;
+    auto d2 = 100001.0_m;
+
+    ASSERT_LE(d1, d2);
+}
+
+TEST_F(DistanceTestFixture, TestOperatorGreater)
+{
+    auto d1 = 100.0_km;
+    auto d2 = 100001.0_m;
+
+    ASSERT_GT(d2, d1);
+}
+
+TEST_F(DistanceTestFixture, TestOperatorGreaterEqual)
+{
+    auto d1 = 100.0_km;
+    auto d2 = 100001.0_m;
+
+    ASSERT_GE(d2, d1);
+}
+
+TEST_F(DistanceTestFixture, TestOperatorEquality)
+{
+    auto d1 = 100.0_km;
+    auto d2 = 100000.0_m;
+
+    ASSERT_GE(d2, d1);
+    ASSERT_GE(d1, d2);
+    ASSERT_LE(d1, d2);
+    ASSERT_LE(d2, d1);
+    ASSERT_EQ(d1, d2);
+}

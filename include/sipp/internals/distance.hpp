@@ -74,6 +74,36 @@ public:
         return *this;
     }
 
+    template<class Rep2, class Ratio2>
+    constexpr bool operator<(const Distance<Rep2, Ratio2> &other) const
+    {
+        return m_count < distance_cast<Distance<Rep, Ratio>>(other).m_count;
+    }
+
+    template<class Rep2, class Ratio2>
+    constexpr bool operator<=(const Distance<Rep2, Ratio2> &other) const
+    {
+        return m_count <= distance_cast<Distance<Rep, Ratio>>(other).m_count;
+    }
+
+    template<class Rep2, class Ratio2>
+    constexpr bool operator>(const Distance<Rep2, Ratio2> &other) const
+    {
+        return !(*this <= other);
+    }
+
+    template<class Rep2, class Ratio2>
+    constexpr bool operator>=(const Distance<Rep2, Ratio2> &other) const
+    {
+        return !(*this < other);
+    }
+
+    template<class Rep2, class Ratio2>
+    constexpr bool operator==(const Distance<Rep2, Ratio2> &other) const
+    {
+        return m_count == distance_cast<Distance<Rep, Ratio>>(other).m_count;
+    }
+
     constexpr const Rep &count() const
     { return m_count; }
 
