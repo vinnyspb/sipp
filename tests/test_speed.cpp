@@ -104,8 +104,8 @@ TEST_F(SpeedTestFixture, TestOperatorGreaterEqual)
 
 TEST_F(SpeedTestFixture, TestOperatorEquality)
 {
-    auto spd1 = 1.0_ft_s;
-    auto spd2 = 60.0_ft_min;
+    auto spd1 = 1_ft_s;
+    auto spd2 = 60_ft_min;
 
     ASSERT_GE(spd2, spd1);
     ASSERT_GE(spd1, spd2);

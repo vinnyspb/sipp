@@ -160,25 +160,49 @@ namespace literals {
 constexpr Meters operator "" _m(long double value)
 { return Meters(value); }
 
+constexpr Meters operator "" _m(uint64_t value)
+{ return Meters(value); }
+
 constexpr Kilometers operator "" _km(long double value)
+{ return Kilometers(value); }
+
+constexpr Kilometers operator "" _km(uint64_t value)
 { return Kilometers(value); }
 
 constexpr Millimeters operator "" _mm(long double value)
 { return Millimeters(value); }
 
+constexpr Millimeters operator "" _mm(uint64_t value)
+{ return Millimeters(value); }
+
 constexpr Micrometers operator "" _um(long double value)
+{ return Micrometers(value); }
+
+constexpr Micrometers operator "" _um(uint64_t value)
 { return Micrometers(value); }
 
 constexpr Nanometers operator "" _nm(long double value)
 { return Nanometers(value); }
 
+constexpr Nanometers operator "" _nm(uint64_t value)
+{ return Nanometers(value); }
+
 constexpr Feet operator "" _ft(long double value)
+{ return Feet(value); }
+
+constexpr Feet operator "" _ft(uint64_t value)
 { return Feet(value); }
 
 constexpr NauticalMiles operator "" _NM(long double value)
 { return NauticalMiles(value); }
 
+constexpr NauticalMiles operator "" _NM(uint64_t value)
+{ return NauticalMiles(value); }
+
 constexpr StatuteMiles operator "" _mi(long double value)
+{ return StatuteMiles(value); }
+
+constexpr StatuteMiles operator "" _mi(uint64_t value)
 { return StatuteMiles(value); }
 
 }
