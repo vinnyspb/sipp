@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cmath>
+
 #include "distance.hpp"
 #include "speed_fwd.hpp"
 
@@ -126,6 +128,11 @@ public:
 
     constexpr const Rep &count() const
     { return m_count; }
+
+    constexpr Speed<Rep, DistanceType, Ratio> abs() const
+    {
+        return Speed<Rep, DistanceType, Ratio>(std::abs(m_count));
+    }
 
 private:
     Rep m_count;

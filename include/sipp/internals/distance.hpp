@@ -2,6 +2,7 @@
 
 #include <type_traits>
 #include <ratio>
+#include <cmath>
 
 #include "distance_fwd.hpp"
 
@@ -104,8 +105,18 @@ public:
         return m_count == distance_cast<Distance<Rep, Ratio>>(other).m_count;
     }
 
+    constexpr Distance<Rep, Ratio> operator-() const
+    {
+        return Distance<Rep, Ratio>(-m_count);
+    }
+
     constexpr const Rep &count() const
     { return m_count; }
+
+    constexpr Distance<Rep, Ratio> abs() const
+    {
+        return Distance<Rep, Ratio>(std::abs(m_count));
+    }
 
 private:
     Rep m_count;

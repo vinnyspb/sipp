@@ -157,3 +157,12 @@ TEST_F(DistanceTestFixture, TestOperatorEquality)
     ASSERT_LE(d2, d1);
     ASSERT_EQ(d1, d2);
 }
+
+TEST_F(DistanceTestFixture, TestAbs)
+{
+    auto altitude1 = -1000_ft;
+    auto altitude2 = 1000_ft;
+
+    ASSERT_EQ(altitude1.abs(), 1000_ft);
+    ASSERT_EQ(altitude2.abs(), 1000_ft);
+}

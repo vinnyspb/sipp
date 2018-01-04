@@ -120,3 +120,12 @@ TEST_F(SpeedTestFixture, TestNegateOperator)
 
     ASSERT_LT(spd1, 0_ft_min);
 }
+
+TEST_F(SpeedTestFixture, TestAbs)
+{
+    auto spd1 = -60_ft_min;
+    auto spd2 = 60_ft_min;
+
+    ASSERT_EQ(spd1.abs(), 60_ft_min);
+    ASSERT_EQ(spd2.abs(), 60_ft_min);
+}
