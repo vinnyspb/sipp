@@ -160,49 +160,49 @@ namespace literals {
 constexpr Meters operator "" _m(long double value)
 { return Meters(value); }
 
-constexpr Meters operator "" _m(uint64_t value)
+constexpr Meters operator "" _m(unsigned long long int value)
 { return Meters(value); }
 
 constexpr Kilometers operator "" _km(long double value)
 { return Kilometers(value); }
 
-constexpr Kilometers operator "" _km(uint64_t value)
+constexpr Kilometers operator "" _km(unsigned long long int value)
 { return Kilometers(value); }
 
 constexpr Millimeters operator "" _mm(long double value)
 { return Millimeters(value); }
 
-constexpr Millimeters operator "" _mm(uint64_t value)
+constexpr Millimeters operator "" _mm(unsigned long long int value)
 { return Millimeters(value); }
 
 constexpr Micrometers operator "" _um(long double value)
 { return Micrometers(value); }
 
-constexpr Micrometers operator "" _um(uint64_t value)
+constexpr Micrometers operator "" _um(unsigned long long int value)
 { return Micrometers(value); }
 
 constexpr Nanometers operator "" _nm(long double value)
 { return Nanometers(value); }
 
-constexpr Nanometers operator "" _nm(uint64_t value)
+constexpr Nanometers operator "" _nm(unsigned long long int value)
 { return Nanometers(value); }
 
 constexpr Feet operator "" _ft(long double value)
 { return Feet(value); }
 
-constexpr Feet operator "" _ft(uint64_t value)
+constexpr Feet operator "" _ft(unsigned long long int value)
 { return Feet(value); }
 
 constexpr NauticalMiles operator "" _NM(long double value)
 { return NauticalMiles(value); }
 
-constexpr NauticalMiles operator "" _NM(uint64_t value)
+constexpr NauticalMiles operator "" _NM(unsigned long long int value)
 { return NauticalMiles(value); }
 
 constexpr StatuteMiles operator "" _mi(long double value)
 { return StatuteMiles(value); }
 
-constexpr StatuteMiles operator "" _mi(uint64_t value)
+constexpr StatuteMiles operator "" _mi(unsigned long long int value)
 { return StatuteMiles(value); }
 
 }

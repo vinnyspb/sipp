@@ -184,37 +184,37 @@ namespace literals {
 constexpr KmPerHour operator "" _km_h(long double value)
 { return KmPerHour(value); }
 
-constexpr KmPerHour operator "" _km_h(uint64_t value)
+constexpr KmPerHour operator "" _km_h(unsigned long long int value)
 { return KmPerHour(value); }
 
 constexpr MetersPerSecond operator "" _m_s(long double value)
 { return MetersPerSecond(value); }
 
-constexpr MetersPerSecond operator "" _m_s(uint64_t value)
+constexpr MetersPerSecond operator "" _m_s(unsigned long long int value)
 { return MetersPerSecond(value); }
 
 constexpr FeetPerSecond operator "" _ft_s(long double value)
 { return FeetPerSecond(value); }
 
-constexpr FeetPerSecond operator "" _ft_s(uint64_t value)
+constexpr FeetPerSecond operator "" _ft_s(unsigned long long int value)
 { return FeetPerSecond(value); }
 
 constexpr FeetPerMinute operator "" _ft_min(long double value)
 { return FeetPerMinute(value); }
 
-constexpr FeetPerMinute operator "" _ft_min(uint64_t value)
+constexpr FeetPerMinute operator "" _ft_min(unsigned long long int value)
 { return FeetPerMinute(value); }
 
 constexpr Knots operator "" _kts(long double value)
 { return Knots(value); }
 
-constexpr Knots operator "" _kts(uint64_t value)
+constexpr Knots operator "" _kts(unsigned long long int value)
 { return Knots(value); }
 
 constexpr MilesPerHour operator "" _mph(long double value)
 { return MilesPerHour(value); }
 
-constexpr MilesPerHour operator "" _mph(uint64_t value)
+constexpr MilesPerHour operator "" _mph(unsigned long long int value)
 { return MilesPerHour(value); }
 
 }
