@@ -3,6 +3,7 @@
 #include <sipp/sipp.hpp>
 
 using namespace sipp::literals;
+using namespace std::chrono_literals;
 
 class SpeedTestFixture : public ::testing::Test {
 
@@ -126,6 +127,33 @@ TEST_F(SpeedTestFixture, TestAbs)
     auto spd1 = -60_ft_min;
     auto spd2 = 60_ft_min;
 
-    ASSERT_EQ(spd1.abs(), 60_ft_min);
-    ASSERT_EQ(spd2.abs(), 60_ft_min);
+    ASSERT_EQ(60_ft_min, spd1.abs());
+    ASSERT_EQ(60_ft_min, spd2.abs());
+}
+
+TEST_F(SpeedTestFixture, TestMultiplySpeedByTime)
+{
+    auto V = 60_km_h;
+    auto t = 10min;
+
+    auto S = V * t;
+    ASSERT_EQ(10_km, S);
+}
+
+TEST_F(SpeedTestFixture, TestDivideDistanceByTime)
+{
+    auto S = 10_km;
+    auto t = 10min;
+
+    auto V = S / t;
+    ASSERT_EQ(60_km_h, V) << V.count();
+}
+
+TEST_F(SpeedTestFixture, TestDivideDistanceBySpeed)
+{
+    auto S = 10_km;
+    auto V = 32.3974_kts;
+
+    auto t = S / V;
+    ASSERT_EQ(600s, std::chrono::duration_cast<std::chrono::seconds>(t)) << t.count();
 }

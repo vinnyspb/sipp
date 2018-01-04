@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+#include <chrono>
 
 #include "distance.hpp"
 #include "speed_fwd.hpp"
@@ -138,7 +139,60 @@ private:
     Rep m_count;
 };
 
-template<class Rep, class DistanceType, class Ratio, class Rep2>
+template<class Rep,
+    class DistanceType,
+    class Ratio,
+    class RepTime,
+    class PeriodTime>
+constexpr DistanceType operator*(const Speed<Rep, DistanceType, Ratio> &speed,
+                                 std::chrono::duration<RepTime, PeriodTime> time)
+{
+    using common_ratio = std::ratio_divide<PeriodTime, Ratio>;
+    return DistanceType(speed.count() * time.count() * static_cast<Rep>(common_ratio::num)
+                            / static_cast<Rep>(common_ratio::den));
+}
+
+template<class Rep,
+    class DistanceType,
+    class Ratio,
+    class RepTime,
+    class PeriodTime>
+constexpr DistanceType operator*(std::chrono::duration<RepTime, PeriodTime> time,
+                                 const Speed<Rep, DistanceType, Ratio> &speed)
+{
+    return speed * time;
+}
+
+template<class Rep,
+    class Ratio,
+    class RepTime,
+    class PeriodTime>
+constexpr Speed<Rep, Distance<Rep, Ratio>, PeriodTime> operator/(
+    const Distance<Rep, Ratio> &distance, std::chrono::duration<RepTime, PeriodTime> time)
+{
+    return Speed<Rep, Distance<Rep, Ratio>, PeriodTime>(distance.count() / time.count());
+}
+
+template<class Rep,
+    class Ratio,
+    class RepSpeed,
+    class DistanceTypeSpeed,
+    class RatioSpeed>
+constexpr std::chrono::duration<Rep, RatioSpeed> operator/(
+    const Distance<Rep, Ratio> &distance,
+    const Speed<RepSpeed, DistanceTypeSpeed, RatioSpeed> &speed)
+{
+    using common_ratio = std::ratio_divide<typename DistanceTypeSpeed::ratio, Ratio>;
+
+    auto d = static_cast<double>(common_ratio::den);
+    auto n = static_cast<double>(common_ratio::num);
+    return std::chrono::duration<Rep, RatioSpeed>(((distance.count() * (d / n)) / speed.count()));
+}
+
+template<class Rep,
+    class DistanceType,
+    class Ratio,
+    class Rep2>
 constexpr Speed<Rep, DistanceType, Ratio> operator*(const Speed<Rep, DistanceType, Ratio> &speed,
                                                     const Rep2 &multiplier)
 {
@@ -149,14 +203,20 @@ constexpr Speed<Rep, DistanceType, Ratio> operator*(const Speed<Rep, DistanceTyp
     return Speed<Rep, DistanceType, Ratio>(speed.count() * multiplier);
 }
 
-template<class Rep, class DistanceType, class Ratio, class Rep2>
+template<class Rep,
+    class DistanceType,
+    class Ratio,
+    class Rep2>
 constexpr Speed<Rep, DistanceType, Ratio> operator*(const Rep2 &multiplier,
                                                     const Speed<Rep, DistanceType, Ratio> &speed)
 {
     return speed * multiplier;
 }
 
-template<class Rep, class DistanceType, class Ratio, class Rep2>
+template<class Rep,
+    class DistanceType,
+    class Ratio,
+    class Rep2>
 constexpr Speed<Rep, DistanceType, Ratio> operator/(const Speed<Rep, DistanceType, Ratio> &speed,
                                                     const Rep2 &divider)
 {
@@ -167,7 +227,12 @@ constexpr Speed<Rep, DistanceType, Ratio> operator/(const Speed<Rep, DistanceTyp
     return Speed<Rep, DistanceType, Ratio>(speed.count() / divider);
 }
 
-template<class Rep1, class DistanceType1, class Ratio1, class Rep2, class DistanceType2, class Ratio2>
+template<class Rep1,
+    class DistanceType1,
+    class Ratio1,
+    class Rep2,
+    class DistanceType2,
+    class Ratio2>
 constexpr Speed<Rep1, DistanceType1, Ratio1> operator+(const Speed<Rep1,
                                                                    DistanceType1,
                                                                    Ratio1> &speed1,
@@ -179,7 +244,12 @@ constexpr Speed<Rep1, DistanceType1, Ratio1> operator+(const Speed<Rep1,
     return Speed<Rep1, DistanceType1, Ratio1>(speed1.count() + converted_speed2.count());
 }
 
-template<class Rep1, class DistanceType1, class Ratio1, class Rep2, class DistanceType2, class Ratio2>
+template<class Rep1,
+    class DistanceType1,
+    class Ratio1,
+    class Rep2,
+    class DistanceType2,
+    class Ratio2>
 constexpr Speed<Rep1, DistanceType1, Ratio1> operator-(const Speed<Rep1,
                                                                    DistanceType1,
                                                                    Ratio1> &speed1,
