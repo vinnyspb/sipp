@@ -119,6 +119,11 @@ public:
         return m_count == speed_cast<Speed<Rep, DistanceType, Ratio>>(other).m_count;
     }
 
+    constexpr Speed<Rep, DistanceType, Ratio> operator-() const
+    {
+        return Speed<Rep, DistanceType, Ratio>(-m_count);
+    }
+
     constexpr const Rep &count() const
     { return m_count; }
 

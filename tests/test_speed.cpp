@@ -113,3 +113,10 @@ TEST_F(SpeedTestFixture, TestOperatorEquality)
     ASSERT_LE(spd2, spd1);
     ASSERT_EQ(spd2, spd1);
 }
+
+TEST_F(SpeedTestFixture, TestNegateOperator)
+{
+    auto spd1 = -60_ft_min;
+
+    ASSERT_LT(spd1, 0_ft_min);
+}
